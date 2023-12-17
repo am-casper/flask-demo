@@ -3,8 +3,10 @@ import os
 
 def create_table():
 # Connect to the database 
+
     conn = psycopg2.connect(database="flask_db",user=os.environ.get('USER'), 
                             password=os.environ.get('PASS'), host="localhost", port="5432") 
+
 
     # create a cursor 
     cur = conn.cursor() 

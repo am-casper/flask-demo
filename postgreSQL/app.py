@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for 
 import psycopg2 
+import os
 
 app = Flask(__name__) 
 
 # Connect to the database 
-conn = psycopg2.connect(database="flask_db", user="casper", 
-						password="", host="localhost", port="5432") 
+conn = psycopg2.connect(database="flask_db", user=os.environ.get('USER'), 
+						password=os.environ.get('PASS'), host="localhost", port="5432") 
 
 # create a cursor 
 cur = conn.cursor() 

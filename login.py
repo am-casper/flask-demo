@@ -29,7 +29,9 @@ def users():
 
 @app.get('/user')
 def user():
-    user = request.args.get('username')
+    req = request.get_json()
+    user = req['username']
+    print(user)
     for u in users():
         if u['username'] == user:
             return u
